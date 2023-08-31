@@ -10,12 +10,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use(
-//   bodyParser.urlencoded({
-//     limit: "50mb",
-//     extended: true,
-//   }),
-// );
+app.use(
+   bodyParser.urlencoded({
+     limit: "50mb",
+     extended: true,
+   }),
+ );
 app.use(bodyParser.json());
 app.post('/purchase', function (req, res) {
    
