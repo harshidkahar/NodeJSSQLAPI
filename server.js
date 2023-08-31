@@ -11,11 +11,11 @@ app.use((req, res, next) => {
 });
 
 app.use(
-   bodyParser.urlencoded({
-     limit: "50mb",
-     extended: true,
-   }),
- );
+  bodyParser.urlencoded({
+    limit: "50mb",
+    extended: true,
+  }),
+);
 app.use(bodyParser.json());
 app.post('/purchase', function (req, res) {
    
@@ -138,9 +138,9 @@ app.post('/register', function (req, res) {
 });
 
 
-// var server = app.listen(5000, function () {
-//     console.log('Server is running..');
-// });
+var server = app.listen(5000, function () {
+    console.log('Server is running..');
+});
 
-const PORT = 4001
-https.createServer(app).listen(PORT, console.log(`server runs on port ${PORT}`))
+// const PORT = 5000
+// https.createServer(app).listen(PORT, console.log(`server runs on port ${PORT}`))
