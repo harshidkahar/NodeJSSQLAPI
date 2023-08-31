@@ -142,5 +142,5 @@ app.post('/register', function (req, res) {
 //     console.log('Server is running..');
 // });
 
-const PORT = 443
+const PORT = 4001
 https.createServer(app).listen(PORT, console.log(`server runs on port ${PORT}`))
