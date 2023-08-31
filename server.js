@@ -138,9 +138,6 @@ app.post('/register', function (req, res) {
 });
 
 
-var server = app.listen(5000, function () {
+var server = app.listen(4001, function () {
     console.log('Server is running..');
 });
-
-// const PORT = 5000
-// https.createServer(app).listen(PORT, console.log(`server runs on port ${PORT}`))
