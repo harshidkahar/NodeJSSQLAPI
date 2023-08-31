@@ -114,7 +114,7 @@ options: {
           res.send("Email validation failed")
           // console.log('Please enter a valid email address');
       } else {
-          if(FirstName.length>0 && LastName.length>0 && SponsorEmail.length>0 && phone.length>0){
+          if(FirstName.length>0 && LastName.length>0 && SponsorEmail.length>0 && Phone.length>0){
               let query = `exec [dbo].[DAL_User_Dump] @EmailId= '${EmailId}', @FirstName = '${FirstName}', @LastName = '${LastName}', @SponsorEmail = '${SponsorEmail}', @Phone = '${Phone}';`;
               console.log(query);
                   request.query(query, function (err, recordset) {
