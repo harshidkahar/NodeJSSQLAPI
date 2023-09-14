@@ -141,6 +141,59 @@ options: {
 });
 
 
+app.post('/updateSponsor', function (req, res) {
+ 
+  var sql = require("mssql");
+
+  // config for your database
+  var config = {
+      user: 'sa',
+      password: '2U2eJegr3hoz5zwVmW2R1',
+      server: '62.171.144.163', 
+      database: 'aifi_affiliate',
+
+options: {
+  trustServerCertificate: true
+} 
+  };
+
+  // connect to your database
+  sql.connect(config, function (err) {
+  
+      if (err) console.log(err);
+
+      // create Request object
+      var EmailId=req.body.email;
+      var SponsorEmail = req.body.referral_email;
+      var request = new sql.Request();
+      
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+      if (!emailRegex.test(SponsorEmail)) {
+          res.send("Email validation failed")
+          // console.log('Please enter a valid email address');
+      } else {
+          if(EmailId.length>0 && SponsorEmail.length>0){
+              let query = `update tblUser set SponsorEmail = '${SponsorEmail}' where EmailId = '${EmailId}';`;
+              console.log(query);
+                  request.query(query, function (err, recordset) {
+                      if (err){
+                          console.log(err)
+                          res.send("Something wrong")
+                      } 
+                      else{
+                          res.send("Success");
+                      }
+                      // send records as a response
+                      
+                      
+                  });
+          }
+          else{
+              res.send("Invalid data")
+          }
+      }
+  });
+});
 
 
 const port = process.env.PORT || 4001;
