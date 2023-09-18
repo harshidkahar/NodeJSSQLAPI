@@ -173,8 +173,7 @@ options: {
           // console.log('Please enter a valid email address');
       } else {
           if(EmailId.length>0 && SponsorEmail.length>0){
-              let query = `exec [dbo].[User_UpdateSponsor] @EmailId= '${EmailId}', @SponsorEmail = '${SponsorEmail}';`;
-              console.log(query);
+            let query = `exec [dbo].[User_UpdateSponsor] @EmailId= '${EmailId}', @SponsorEmail = '${SponsorEmail}';`;
               console.log(query);
                   request.query(query, function (err, recordset) {
                       if (err){
